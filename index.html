@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Budget Blitz</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Landing Screen -->
+    <section id="landing" class="screen active" role="region" aria-labelledby="landing-title">
+      <h1 id="landing-title">Budget Blitz</h1>
+      <p class="intro">Manage your monthly budget in 60 seconds! Approve or decline expenses to stay within your budget while meeting essential needs.</p>
+      <div class="landing-actions">
+        <button id="start-btn" class="primary">Start Game</button>
+        <button id="settings-btn" aria-label="Settings" class="secondary">Settings</button>
+      </div>
+    </section>
+
+    <!-- Game Screen -->
+    <section id="game" class="screen" role="region" aria-live="polite" aria-labelledby="game-title">
+      <h2 id="game-title" class="visually-hidden">Game</h2>
+      <div class="hud">
+        <div class="hud-item">
+          <strong><span id="timer">60</span>s</strong>
+        </div>
+        <div class="hud-item">
+          Balance: ₹<span id="balance">50000</span>
+        </div>
+        <div class="hud-item">
+          <label for="quality-meter">Quality</label>
+          <progress id="quality-meter" max="100" value="100" aria-valuetext="100" aria-label="Quality index"></progress>
+        </div>
+        <div class="hud-item">
+          <label for="frugality-meter">Frugality</label>
+          <progress id="frugality-meter" max="100" value="100" aria-valuetext="100" aria-label="Frugality index"></progress>
+        </div>
+      </div>
+      <div id="card-lane" aria-label="Expense cards">
+        <!-- cards rendered via JS -->
+      </div>
+      <div id="next-preview" class="next-preview" aria-label="Next expense">
+        <!-- next card preview -->
+      </div>
+      <div class="controls">
+        <button id="approve-btn" class="primary">Approve (A)</button>
+        <button id="decline-btn" class="secondary">Decline (D)</button>
+        <button id="pause-btn" class="secondary">Pause</button>
+      </div>
+    </section>
+
+    <!-- Pause Overlay -->
+    <div id="pause-overlay" class="overlay hidden" role="dialog" aria-modal="true" aria-labelledby="pause-title">
+      <div class="modal">
+        <h2 id="pause-title">Paused</h2>
+        <button id="resume-btn" class="primary">Resume</button>
+      </div>
+    </div>
+
+    <!-- Results Screen -->
+    <section id="results" class="screen" role="region" aria-labelledby="results-title">
+      <h2 id="results-title">Results</h2>
+      <div id="results-summary"></div>
+      <div class="results-actions">
+        <button id="play-again-btn" class="primary">Play Again</button>
+        <button id="share-btn" class="secondary">Share</button>
+      </div>
+    </section>
+  </div>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
